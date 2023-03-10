@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:fragment="head(title)">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title th:text="${title}">영남대학교</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link href="header.css" th:href="@{/header.css}" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="p-3 text-bg-dark" th:fragment="menu(menu)">
+      <div class="container">
+        <div
+          class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+        >
+          <a
+            href="/"
+            class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
+          >
+            <!--              <use xlink:href="#bootstrap"></use>-->
+            <img
+              width="120px"
+              src="https://museum.yu.ac.kr/_res/yu/main/etc/img-logo-on-2023.svg"
+              class="img-fluid mr-10"
+              alt="영남대학교"
+            />
+          </a>
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#"
+                    >Home <span class="sr-only">(current)</span></a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <ul
+            class="navbar-nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+          >
+            <li class="nav-item" th:classappend="${menu} == 'home'? 'active'">
+              <a href="#" class="nav-link px-2 ml-2"
+                >홈
+                <span class="sr-only" th:if="${menu} == 'home'"
+                  >(current)</span
+                ></a
+              >
+            </li>
+            <li class="nav-item" th:classappend="${menu} == 'board'? 'active'">
+              <a href="#" class="nav-link px-2"
+                >게시판
+                <span class="sr-only" th:if="${menu} == 'board'"
+                  >(current)</span
+                ></a
+              >
+            </li>
+            <!--            <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>-->
+            <!--            <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>-->
+            <!--            <li><a href="#" class="nav-link px-2 text-white">About</a></li>-->
+          </ul>
+
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+            <input
+              type="search"
+              class="form-control form-control-dark text-bg-dark"
+              placeholder="Search..."
+              aria-label="Search"
+            />
+          </form>
+
+          <div class="text-end">
+            <button type="button" class="btn btn-outline-light me-2">
+              Login
+            </button>
+            <button type="button" class="btn btn-warning">Sign-up</button>
+          </div>
+        </div>
+      </div>
+    </header>
+  </body>
+</html>
